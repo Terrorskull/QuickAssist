@@ -3,10 +3,6 @@
 ## Notes: Replace the common /assist macro
 ## Version: 4.01-wf1
 ## Author: Schnoggo
-## Dependencies:
-## SavedVariablesPerCharacter: SimpleAssistCharVars
 localization.lua
 alert.xml
 SimpleAssist.lua
-settings_panel_lib.lua
-settings.lua

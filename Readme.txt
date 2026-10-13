@@ -24,7 +24,6 @@ Features
 
 * Key bind to set the assist
 * Key bind to execute the assist
-* Key bind to request an assist
 
 Usage
 =====
@@ -33,7 +32,8 @@ Set a key to remember who to assist.
 Set one to assist that player.
 Simple!
 
-/sass to bring up more information.
+(The "Request Assistance" key bind, the chat and raid icon options and the
+settings panel from the original were removed in QuickAssist.)
 
 Known Issues
 ============
@@ -42,6 +42,12 @@ Known Issues
 
 Versions
 ========
+Unreleased (QuickAssist)
+  * Removed the Request Assistance feature, its chat and raid icon settings and the settings panel
+  * Removed the saved variables (there are no settings left to save)
+  * Fixed the addon name lookups after renaming the addon to QuickAssist
+  * Removed unused code, files and event registrations
+
 4.01-wf1 October 13, 2026 (modified version for WoW Forever, not by the original author)
   * Added classic interface number 16001 to the TOC so the addon loads on WoW Forever
   * Fixed the settings panel passing the realm name along with the character name
