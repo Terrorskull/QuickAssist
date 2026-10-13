@@ -100,6 +100,11 @@ function ns.Learn(unit)
 	local name = UnitName(unit);
 	local display = DisplayName(unit);
 
+	if (name ~= nil and UnitIsUnit(unit, "player")) then
+		PopMsg(L.CANNOT_ASSIST_SELF); -- assisting yourself would do nothing useful
+		return; -- the player currently being assisted stays as it is
+	end
+
 	if (InCombatLockdown()) then
 		if (name == nil) then
 			pending = PENDING_CLEAR;

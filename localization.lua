@@ -4,7 +4,8 @@ ns.L = {
 	CLEARED="Assist Cleared",
 	ASSIST_SET="Assist set",
 	ASSIST_PENDING="Assist will change when you leave combat. \nQueuing:",
-	CLEAR_PENDING="Assist will be cleared when you leave combat. "
+	CLEAR_PENDING="Assist will be cleared when you leave combat. ",
+	CANNOT_ASSIST_SELF="You can't set yourself as the player to assist"
 }
 
 -- Key Bindings panel text (must be globals):
