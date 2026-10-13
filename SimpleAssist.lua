@@ -23,7 +23,7 @@ SassAddon = {
 		a = 1,
 		col_width = (SASSTEXT.COLWIDTH * 2) + 10
 	},
-	unsaved_setting = {}
+	unsaved_settings = {}
 };
 
 
@@ -301,12 +301,12 @@ function  SimpleAssist_AskAssist()
 		--DEFAULT_CHAT_FRAME:AddMessage("Ask assist: " .. msg ,  0.5, 1.0, 0.5, 1);
 
 
-		if (IsInGroup()) then
-			local raid_icon_num = 0;
-			if (nil ~= SimpleAssistCharVars.RAID_ICON ) then
-				raid_icon_num = tonumber(strsub(SimpleAssistCharVars.RAID_ICON, -1));
-			end
+		local raid_icon_num = 0;
+		if (nil ~= SimpleAssistCharVars.RAID_ICON ) then
+			raid_icon_num = tonumber(strsub(SimpleAssistCharVars.RAID_ICON, -1)) or 0;
+		end
 
+		if (IsInGroup()) then
 			if (IsInRaid()) then
 				if (SimpleAssistCharVars.CHAT_RAID) then
 					SendChatMessage(msg, "RAID");
@@ -343,8 +343,8 @@ function  SimpleAssist_AskAssist()
 				DoEmote("ATTACKMYTARGET");
 			end
 
-			if (SimpleAssistCharVars.RAID_ICON ~= 0) then
-				SetRaidTarget("target",icon_number);
+			if 0 ~= raid_icon_num then
+				SetRaidTarget("target",raid_icon_num);
 			end
 
 
