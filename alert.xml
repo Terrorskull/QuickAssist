@@ -10,7 +10,7 @@
 	>
 
 	<Size>
-		<AbsDimension x="520" y="60"/>
+		<AbsDimension x="900" y="80"/>
 	</Size>
 
 	<Anchors>
@@ -21,7 +21,7 @@
 		</Anchor>
 	</Anchors>
 
-	<FontString inherits="NumberFontNormalHuge" justifyH="CENTER" />
+	<FontString inherits="GameFontNormalHuge" justifyH="CENTER" />
 </MessageFrame>
 
 </Ui>

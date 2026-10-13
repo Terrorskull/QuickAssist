@@ -28,10 +28,23 @@ button:SetPoint("TOPLEFT", "UIParent", "TOPLEFT", 50, 50);
 
 local events = CreateFrame("Frame");
 
+-- Alert text: the game's own font, but larger and outlined so it stands out
+local ALERT_FONT_SIZE = 32;
+local alertFont = CreateFont("QuickAssistAlertFont");
+alertFont:SetFont((GameFontNormalHuge:GetFont()), ALERT_FONT_SIZE, "OUTLINE");
+QuickAssistAlertFrame:SetFontObject(alertFont);
+QuickAssistAlertFrame:SetJustifyH("CENTER");
+
+-- How long a message stays: full strength, then fading out (seconds)
+local ALERT_HOLD_SECONDS = 2;
+local ALERT_FADE_SECONDS = 1;
+QuickAssistAlertFrame:SetTimeVisible(ALERT_HOLD_SECONDS);
+QuickAssistAlertFrame:SetFadeDuration(ALERT_FADE_SECONDS);
+
 
 --- Our head's up display for this addon
 local function PopMsg(msg)
-	QuickAssistAlertFrame:AddMessage(msg, 1, 1, 1, 1, 3);
+	QuickAssistAlertFrame:AddMessage(msg, 1, 1, 1, 1); -- uses the frame's visible and fade times
 end
 
 

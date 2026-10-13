@@ -49,6 +49,7 @@ Versions
   * Key bindings now have their own QuickAssist section. Existing key assignments must be set again
   * The assist key now also honors a second key assigned to it
   * Assist messages now show the primary and secondary name of WoW Forever players
+  * Assist messages use a larger, outlined version of the standard game font instead of the number font, and they disappear sooner
   * Cleaned up the code: a single global, unused code, files and event registrations removed
 
 4.01-wf1 October 13, 2026 (modified version for WoW Forever, not by the original author)
