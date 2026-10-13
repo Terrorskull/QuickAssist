@@ -48,7 +48,7 @@ Versions
   * Removed the saved variables (there are no settings left to save)
   * Key bindings now have their own QuickAssist section. Existing key assignments must be set again
   * The assist key now also honors a second key assigned to it
-  * Assist messages now show the primary and secondary name of WoW Forever players
+  * Assist messages and the assist macro now use the primary and secondary name of WoW Forever players
   * Assist messages use a larger, outlined version of the standard game font instead of the number font, and they disappear sooner
   * You can no longer set yourself as the player to assist
   * The TOC now targets WoW Forever only (retail interface number removed, it was never tested)

@@ -48,15 +48,30 @@ local function PopMsg(msg)
 end
 
 
---- The name to show for a unit. On WoW Forever this is the primary and the
--- secondary name, elsewhere just the name.
-local function DisplayName(unit)
+--- The primary name of a unit and, for players on WoW Forever, the secondary name.
+local function NameParts(unit)
 	local primary, secondary = UnitName(unit);
 	if (primary and secondary and "" ~= secondary
 		and UnitIsPlayer(unit) and RegionalUniqueNamesEnabled and RegionalUniqueNamesEnabled()) then
-		return primary .. SURNAME_SEPARATOR .. secondary;
+		return primary, secondary;
 	end
 	return primary;
+end
+
+
+--- The name to show for a unit: primary and secondary name, or just the name.
+local function DisplayName(unit)
+	local primary, secondary = NameParts(unit);
+	return secondary and (primary .. SURNAME_SEPARATOR .. secondary) or primary;
+end
+
+
+--- The name to use in the /assist macro. The game accepts the primary and secondary
+-- name separated by a space (a hyphen does not work), which tells apart players
+-- who share a primary name.
+local function MacroName(unit)
+	local primary, secondary = NameParts(unit);
+	return secondary and (primary .. " " .. secondary) or primary;
 end
 
 
@@ -97,7 +112,7 @@ end
 -- During combat the change is queued until combat ends.
 -- @param unit ID of unit to be set as assist
 function ns.Learn(unit)
-	local name = UnitName(unit);
+	local name = MacroName(unit); -- nil when there is no such unit
 	local display = DisplayName(unit);
 
 	if (name ~= nil and UnitIsUnit(unit, "player")) then
