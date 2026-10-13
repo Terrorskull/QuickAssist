@@ -1,16 +1,16 @@
 <!--
 Name: QuickAssist
 
-The display text for the header and binding names is defined in localization.lua
-(BINDING_HEADER_QUICKASSIST, BINDING_NAME_QUICKASSIST_*).
+The category groups both bindings into their own section in the Key Bindings panel.
+The display text of each binding is defined in localization.lua (BINDING_NAME_QUICKASSIST_*).
 -->
 <Bindings>
 
-<Binding name="QUICKASSIST_LEARN" header="QUICKASSIST">
+<Binding name="QUICKASSIST_LEARN" category="QuickAssist">
 SimpleAssist_LearnAssist("target");
 </Binding>
 
-<Binding name="QUICKASSIST_ASSIST">
+<Binding name="QUICKASSIST_ASSIST" category="QuickAssist">
 SimpleAssist_DoAssist();
 </Binding>
 

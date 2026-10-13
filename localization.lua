@@ -6,6 +6,5 @@ SASSTEXT = {
 }
 
 -- Key Bindings panel text (must be globals):
-BINDING_HEADER_QUICKASSIST = "QuickAssist"
 BINDING_NAME_QUICKASSIST_LEARN = "Set Player to Assist"
 BINDING_NAME_QUICKASSIST_ASSIST = "Assist Learned Player"
