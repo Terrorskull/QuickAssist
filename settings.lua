@@ -78,7 +78,7 @@ function SimpleAssist_Options_CreatePanel()
     txt.b = 1;
     txt.x = 132;
     txt.y = this_row_y;
-    SassAddon.PanelText(UnitName("player"));
+    SassAddon.PanelText((UnitName("player"))); -- parens: drop the realm return value
     txt.y = this_row_y;
     txt.x = 262;
     SassAddon.PanelControl('EditBox', 'CUSTOM_CALL_MIDDLE');
