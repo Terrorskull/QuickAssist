@@ -1,5 +1,5 @@
 ## Interface: 120000, 16001
-## Title: SimpleAssist
+## Title: QuickAssist
 ## Notes: Replace the common /assist macro
 ## Version: 4.01-wf1
 ## Author: Schnoggo
