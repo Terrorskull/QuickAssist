@@ -1,4 +1,6 @@
-SASSTEXT = {
+local _, ns = ...; -- ns is shared by every file in this addon
+
+ns.L = {
 	CLEARED="Assist Cleared",
 	ASSIST_SET="Assist set",
 	ASSIST_PENDING="Assist will change when you leave combat. \nQueuing:",

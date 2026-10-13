@@ -1,4 +1,4 @@
-SimpleAssist v4.01 (modified as QuickAssist 4.01-wf1)
+QuickAssist v0.1.0 (based on SimpleAssist v4.01)
 
 Note: QuickAssist is a modified version of SimpleAssist, which was written by
 Schnoggo. It is released under the same license as the original, Creative
@@ -42,13 +42,13 @@ Known Issues
 
 Versions
 ========
-Unreleased (QuickAssist)
+0.1.0 October 13, 2026 (QuickAssist, modified version, not by the original author)
+  * Renamed the addon to QuickAssist and started a new version line
   * Removed the Request Assistance feature, its chat and raid icon settings and the settings panel
   * Removed the saved variables (there are no settings left to save)
   * Key bindings now have their own QuickAssist section. Existing key assignments must be set again
   * The assist key now also honors a second key assigned to it
-  * Fixed the addon name lookups after renaming the addon to QuickAssist
-  * Removed unused code, files and event registrations
+  * Cleaned up the code: a single global, unused code, files and event registrations removed
 
 4.01-wf1 October 13, 2026 (modified version for WoW Forever, not by the original author)
   * Added classic interface number 16001 to the TOC so the addon loads on WoW Forever

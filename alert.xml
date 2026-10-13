@@ -2,7 +2,7 @@
 ..\..\FrameXML\UI.xsd">
 
 
-<MessageFrame name="SimpleAssistAlertFrame"
+<MessageFrame name="QuickAssistAlertFrame"
 	insertMode="TOP"
 	parent="UIParent"
 	frameStrata="LOW"

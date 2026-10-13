@@ -7,11 +7,11 @@ The display text of each binding is defined in localization.lua (BINDING_NAME_QU
 <Bindings>
 
 <Binding name="QUICKASSIST_LEARN" category="QuickAssist">
-SimpleAssist_LearnAssist("target");
+QuickAssist.Learn("target");
 </Binding>
 
 <Binding name="QUICKASSIST_ASSIST" category="QuickAssist">
-SimpleAssist_DoAssist();
+QuickAssist.DoAssist();
 </Binding>
 
 </Bindings>
