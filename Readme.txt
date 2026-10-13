@@ -37,6 +37,10 @@ Known Issues
 
 Versions
 ========
+4.01-wf1 October 13, 2026 (modified version for WoW Forever, not by the original author)
+  * Added classic interface number 16001 to the TOC so the addon loads on WoW Forever
+  * Fixed the settings panel passing the realm name along with the character name
+
 4.01 November 17, 2020
   * Updated TOC and version for WoW client 9.02 (Shadowlands)
   
