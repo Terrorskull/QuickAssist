@@ -12,8 +12,12 @@ local DEFAULT_MACRO = "/assist target"; -- used until a player has been learned
 local PENDING_CLEAR = {}; -- marks a "clear the learned player" request made during combat
 
 -- A learn request made during combat, applied once combat ends:
--- nil (nothing pending) | player name | PENDING_CLEAR
+-- nil (nothing pending) | {name = , display = } | PENDING_CLEAR
 local pending;
+
+-- WoW Forever players have a primary and a secondary name (no realm)
+local SURNAME_SEPARATOR = Constants and Constants.CharacterNameSeparatorConsts
+	and Constants.CharacterNameSeparatorConsts.CHARACTERNAME_SURNAME_SEPARATOR or "-";
 
 local button = CreateFrame("CheckButton", BUTTON_NAME, UIParent, "ActionBarButtonTemplate");
 button:SetAttribute("type", "macro");
@@ -31,13 +35,26 @@ local function PopMsg(msg)
 end
 
 
+--- The name to show for a unit. On WoW Forever this is the primary and the
+-- secondary name, elsewhere just the name.
+local function DisplayName(unit)
+	local primary, secondary = UnitName(unit);
+	if (primary and secondary and "" ~= secondary
+		and UnitIsPlayer(unit) and RegionalUniqueNamesEnabled and RegionalUniqueNamesEnabled()) then
+		return primary .. SURNAME_SEPARATOR .. secondary;
+	end
+	return primary;
+end
+
+
 --- Point the assist key at a player, or reset it to assist the current target.
 -- Setting a secure attribute is not allowed during combat.
 -- @param name of player to assist, or nil to clear
-local function SetAssist(name)
+-- @param display name to show in messages
+local function SetAssist(name, display)
 	if (name) then
 		button:SetAttribute("macrotext", "/assist " .. name);
-		PopMsg(L.ASSIST_SET .. ": " .. name);
+		PopMsg(L.ASSIST_SET .. ": " .. display);
 	else
 		button:SetAttribute("macrotext", DEFAULT_MACRO);
 		PopMsg(L.CLEARED);
@@ -68,14 +85,15 @@ end
 -- @param unit ID of unit to be set as assist
 function ns.Learn(unit)
 	local name = UnitName(unit);
+	local display = DisplayName(unit);
 
 	if (InCombatLockdown()) then
 		if (name == nil) then
 			pending = PENDING_CLEAR;
 			PopMsg(L.CLEAR_PENDING);
 		else
-			pending = name;
-			PopMsg(L.ASSIST_PENDING .. name);
+			pending = {name = name, display = display};
+			PopMsg(L.ASSIST_PENDING .. display);
 		end
 		return;
 	end
@@ -84,7 +102,7 @@ function ns.Learn(unit)
 		SetAssist(nil);
 	-- unit could technically be "target" here... (changed from player to target for Battle of Darrowshire and similar events)
 	elseif (UnitIsPlayer(unit) and UnitIsFriend("target", unit)) then
-		SetAssist(name);
+		SetAssist(name, display);
 	end
 end
 
@@ -106,7 +124,7 @@ events:SetScript("OnEvent", function(frame, event)
 			if (PENDING_CLEAR == pending) then
 				SetAssist(nil);
 			else
-				SetAssist(pending);
+				SetAssist(pending.name, pending.display);
 			end
 			pending = nil;
 		end

@@ -17,6 +17,7 @@ Free to use and share with credit to the original author. Not for commercial use
 - Renamed the addon to QuickAssist and started a new version line (the last SimpleAssist-based version was `4.01-wf1`). `QuickAssist.toc` and `QuickAssist.lua` replace the SimpleAssist file names.
 - Removed the Request Assistance feature and all of its settings (chat channels, custom message, raid icon), which also removed the settings panel (`settings.lua`, `settings_panel_lib.lua`) and the saved variables.
 - Key bindings now have their own "QuickAssist" section in the Key Bindings panel instead of "Other". The binding names changed (`QUICKASSIST_LEARN`, `QUICKASSIST_ASSIST`), so existing key assignments need to be set again. The assist key now also honors a second key assigned to it.
+- Assist messages now show the player's primary and secondary name on WoW Forever (for example `Emberfall Quillgrove`), not just the primary name. The assist macro itself still uses the primary name only.
 - Code cleanup: one global (`QuickAssist`) instead of many, the unused `SimpleAssist.xml`, test functions, `SchnoggoAlertInform` hook and unused event registrations removed, and `PLAYER_LEAVE_COMBAT` replaced by `PLAYER_REGEN_ENABLED`. Override key bindings are cleared and reapplied when bindings change and when combat ends.
 - Added `LICENSE` with attribution to the original author and the CC BY-NC 3.0 terms.
 
