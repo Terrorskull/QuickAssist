@@ -1,0 +1,36 @@
+QuickAssist
+===========
+
+QuickAssist is a modified version of SimpleAssist, a World of Warcraft addon
+by Schnoggo (published on CurseForge as LonMakes).
+
+Original work:   SimpleAssist 4.01
+Original author: Schnoggo
+Original source: https://www.curseforge.com/wow/addons/simpleassist
+                 https://www.wowinterface.com/downloads/fileinfo.php?id=7814
+
+License
+-------
+
+The original work is published under the Creative Commons
+Attribution-NonCommercial 3.0 Unported license (CC BY-NC 3.0):
+
+    https://creativecommons.org/licenses/by-nc/3.0/
+
+This modified version is released under the same license. In short, you may
+copy, share and adapt it, as long as you:
+
+  * give credit to the original author (Schnoggo) and keep this notice,
+  * indicate that changes were made (see the changelog in README.md and
+    Readme.txt),
+  * do not use it for commercial purposes.
+
+This file is a summary for convenience, not a replacement for the license
+text at the link above.
+
+Changes
+-------
+
+See the changelog in README.md and the version list in Readme.txt. The
+unmodified retail SimpleAssist 4.01 is the first commit in this repository's
+history.

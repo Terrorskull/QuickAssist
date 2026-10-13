@@ -1,4 +1,9 @@
-SimpleAssist v4.01
+SimpleAssist v4.01 (modified as QuickAssist 4.01-wf1)
+
+Note: QuickAssist is a modified version of SimpleAssist, which was written by
+Schnoggo. It is released under the same license as the original, Creative
+Commons Attribution-NonCommercial 3.0 (https://creativecommons.org/licenses/by-nc/3.0/).
+See the LICENSE file. The text below is the original documentation.
 
 Description
 ===========
