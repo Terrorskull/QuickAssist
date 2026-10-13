@@ -1,14 +1,16 @@
 <!--
 Name: QuickAssist
 
+The display text for the header and binding names is defined in localization.lua
+(BINDING_HEADER_QUICKASSIST, BINDING_NAME_QUICKASSIST_*).
 -->
 <Bindings>
 
-<Binding name="Set Player to Assist"  header="SimpleAssist:">
+<Binding name="QUICKASSIST_LEARN" header="QUICKASSIST">
 SimpleAssist_LearnAssist("target");
 </Binding>
 
-<Binding name="Assist Learned Player">
+<Binding name="QUICKASSIST_ASSIST">
 SimpleAssist_DoAssist();
 </Binding>
 

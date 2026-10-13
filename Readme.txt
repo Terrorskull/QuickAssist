@@ -45,6 +45,8 @@ Versions
 Unreleased (QuickAssist)
   * Removed the Request Assistance feature, its chat and raid icon settings and the settings panel
   * Removed the saved variables (there are no settings left to save)
+  * Key bindings now have their own QuickAssist section. Existing key assignments must be set again
+  * The assist key now also honors a second key assigned to it
   * Fixed the addon name lookups after renaming the addon to QuickAssist
   * Removed unused code, files and event registrations
 

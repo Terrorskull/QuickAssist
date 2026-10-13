@@ -77,15 +77,15 @@ end
 
 function SimpleAssist_UpdateBindings()
  if nil ~= SimpleAssistActionButton then
-			local key1, key2 = GetBindingKey("Assist Learned Player");
-				if (key1) then -- SetOverrideBindingClick(owner, isPriority, "KEY", "ButtoName"[,"mouseButton"]);
+			local key1, key2 = GetBindingKey("QUICKASSIST_ASSIST");
+				for _, key in ipairs({key1, key2}) do -- both of the player's keys for this binding
 					SetOverrideBindingClick(
 						SassAddon.eventframe, -- owner frame
 						false, -- isPriority, even false is higher than normal bindings
-						key1,
+						key,
 						"SimpleAssistActionButton" -- buttonName
 					);
-			end
+				end
 		end -- button has been instantiated
 end
 
