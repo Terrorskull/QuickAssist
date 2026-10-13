@@ -6,6 +6,8 @@ It replaces the usual `/assist <name>` macro: no macro to edit when the player y
 
 ![The QuickAssist section in the Key Bindings panel](docs/keybindings.png)
 
+![The message shown when you try to set yourself as the player to assist](docs/self-assist-message.png)
+
 ## Install
 
 1. Download `QuickAssist-0.1.0.zip` from the [latest release](https://github.com/Terrorskull/QuickAssist/releases/latest).
