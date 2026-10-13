@@ -1,0 +1,19 @@
+<!--
+Name: SimpleAssist
+
+-->
+<Bindings>
+
+<Binding name="Set Player to Assist"  header="SimpleAssist:">
+SimpleAssist_LearnAssist("target");
+</Binding>
+
+<Binding name="Assist Learned Player">
+SimpleAssist_DoAssist();
+</Binding>
+
+<Binding name="Request Assistance" >
+SimpleAssist_AskAssist();
+</Binding>
+
+</Bindings>
