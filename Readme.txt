@@ -51,6 +51,7 @@ Versions
   * Assist messages now show the primary and secondary name of WoW Forever players
   * Assist messages use a larger, outlined version of the standard game font instead of the number font, and they disappear sooner
   * You can no longer set yourself as the player to assist
+  * The TOC now targets WoW Forever only (retail interface number removed, it was never tested)
   * Cleaned up the code: a single global, unused code, files and event registrations removed
 
 4.01-wf1 October 13, 2026 (modified version for WoW Forever, not by the original author)

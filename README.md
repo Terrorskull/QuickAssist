@@ -21,6 +21,7 @@ Free to use and share with credit to the original author. Not for commercial use
 - Assist messages use a larger, outlined version of the standard game font (`GameFontNormalHuge`) instead of the number font. The size is `ALERT_FONT_SIZE` in `QuickAssist.lua`, and the message frame is wider so long names don't wrap. They also disappear sooner: 2 seconds visible and a 1 second fade (`ALERT_HOLD_SECONDS`, `ALERT_FADE_SECONDS`), down from about 6 seconds.
 - You can no longer set yourself as the player to assist. The learn key shows a message instead and keeps the current assist.
 - Code cleanup: one global (`QuickAssist`) instead of many, the unused `SimpleAssist.xml`, test functions, `SchnoggoAlertInform` hook and unused event registrations removed, and `PLAYER_LEAVE_COMBAT` replaced by `PLAYER_REGEN_ENABLED`. Override key bindings are cleared and reapplied when bindings change and when combat ends.
+- The TOC now targets WoW Forever only (`## Interface: 16001`). The retail interface number was removed because this version has only been tested on WoW Forever. The TOC author line credits Schnoggo and Terrorskull.
 - Added `LICENSE` with attribution to the original author and the CC BY-NC 3.0 terms.
 
 ### 4.01-wf1 (2026-10-13)
