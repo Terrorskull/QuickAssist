@@ -1,29 +1,43 @@
 # QuickAssist
-World of Warcraft addon
 
-Remember a friendly player with one key, assist their target with another.
+A small World of Warcraft addon for WoW Forever. Remember a friendly player with one key, then assist their target with another.
 
-Based on SimpleAssist 4.01 by Schnoggo (see `Readme.txt` for the original documentation and history).
-This is a modified version for WoW Forever (classic).
+It replaces the usual `/assist <name>` macro: no macro to edit when the player you follow changes, just target them and press a key.
 
-## License
+![The QuickAssist section in the Key Bindings panel](docs/keybindings.png)
 
-Released under the Creative Commons Attribution-NonCommercial 3.0 Unported license (CC BY-NC 3.0), the same license as the original. See `LICENSE` for the attribution details.
-Free to use and share with credit to the original author. Not for commercial use.
+## Install
 
-## Changes from SimpleAssist
+1. Download `QuickAssist-0.1.0.zip` from the [latest release](https://github.com/Terrorskull/QuickAssist/releases/latest).
+2. Unzip it into your WoW Forever `Interface/AddOns` folder, so you end up with `AddOns/QuickAssist/QuickAssist.toc`.
+3. If the game is already running, type `/reload`. A restart isn't needed.
 
-### 0.1.0 (2026-10-13)
-- Renamed the addon to QuickAssist and started a new version line (the last SimpleAssist-based version was `4.01-wf1`). `QuickAssist.toc` and `QuickAssist.lua` replace the SimpleAssist file names.
-- Removed the Request Assistance feature and all of its settings (chat channels, custom message, raid icon), which also removed the settings panel (`settings.lua`, `settings_panel_lib.lua`) and the saved variables.
-- Key bindings now have their own "QuickAssist" section in the Key Bindings panel instead of "Other". The binding names changed (`QUICKASSIST_LEARN`, `QUICKASSIST_ASSIST`), so existing key assignments need to be set again. The assist key now also honors a second key assigned to it.
-- Assist messages now show the player's primary and secondary name on WoW Forever (for example `Emberfall Quillgrove`), not just the primary name. The assist macro uses both names too, separated by a space (`/assist Name Secondary`), so players who share a primary name can be told apart. A hyphen does not work in the game's `/assist`.
-- Assist messages use a larger, outlined version of the standard game font (`GameFontNormalHuge`) instead of the number font. The size is `ALERT_FONT_SIZE` in `QuickAssist.lua`, and the message frame is wider so long names don't wrap. They also disappear sooner: 2 seconds visible and a 1 second fade (`ALERT_HOLD_SECONDS`, `ALERT_FADE_SECONDS`), down from about 6 seconds.
-- You can no longer set yourself as the player to assist. The learn key shows a message instead and keeps the current assist.
-- Code cleanup: one global (`QuickAssist`) instead of many, the unused `SimpleAssist.xml`, test functions, `SchnoggoAlertInform` hook and unused event registrations removed, and `PLAYER_LEAVE_COMBAT` replaced by `PLAYER_REGEN_ENABLED`. Override key bindings are cleared and reapplied when bindings change and when combat ends.
-- The TOC now targets WoW Forever only (`## Interface: 16001`). The retail interface number was removed because this version has only been tested on WoW Forever. The TOC author line credits Schnoggo and Terrorskull.
-- Added `LICENSE` with attribution to the original author and the CC BY-NC 3.0 terms.
+## Usage
 
-### 4.01-wf1 (2026-10-13)
-- `SimpleAssist.toc`: added the classic interface number, `## Interface: 120000, 16001`, so the addon loads on WoW Forever.
-- `settings.lua`: wrapped `UnitName("player")` in extra parentheses before passing it to `SassAddon.PanelText`, so only the character name is passed and not the realm return value.
+Open the Key Bindings panel (Esc > Options > Key Bindings) and find the **QuickAssist** section.
+
+- **Set Player to Assist**: target a friendly player and press this key. You'll see "Assist set: Name Secondary".
+- **Assist Learned Player**: press this key to target that player's target.
+
+Good to know:
+- Until you learn someone, the assist key just assists your current target, so you can bind it to your normal assist key.
+- Press **Set Player to Assist** with nothing targeted to clear the learned player.
+- You can't set yourself as the player to assist.
+- If you change the player during combat, the change is queued and applied when combat ends.
+- Players have a primary and a secondary name on WoW Forever. QuickAssist uses both, so two players who share a primary name can be told apart.
+
+There are no settings and no slash commands.
+
+## Compatibility
+
+Tested on WoW Forever (interface `16001`). It has not been tested on retail or other clients.
+
+## Credits and license
+
+QuickAssist is a modified version of [SimpleAssist](https://www.curseforge.com/wow/addons/simpleassist) 4.01 by Schnoggo. The original documentation is in `Readme.txt`.
+
+Released under the Creative Commons Attribution-NonCommercial 3.0 Unported license (CC BY-NC 3.0), the same license as the original. Free to use and share with credit to the original author. Not for commercial use. See `LICENSE` for the details.
+
+## Changes
+
+See [CHANGELOG.md](CHANGELOG.md) for what changed from SimpleAssist.
