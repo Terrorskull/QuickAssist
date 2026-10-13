@@ -1,3 +1,5 @@
+local ADDON_NAME = ...; -- folder name, passed by WoW to every file in the TOC
+
 -- Globals:
 -- ========
 -- our big global object:
@@ -67,7 +69,7 @@ boot_frame:SetScript(
 function SassAddon.init(event, addon)
 	local myPlayer = SassAddon.myPlayer; -- local shortcut
 	local need_to_init = false;
-	if event == "ADDON_LOADED" and addon == "SimpleAssist" then
+	if event == "ADDON_LOADED" and addon == ADDON_NAME then
 	--	DEFAULT_CHAT_FRAME:AddMessage(SASSTEXT.WELCOME,  0.5, 1.0, 0.5, 1); -- leave for testing
 
 		if ( false == SassAddon.addon_loaded ) then -- only need to load once

@@ -1,8 +1,11 @@
+local ADDON_NAME = ...; -- folder name, passed by WoW to every file in the TOC
+local ADDON_VERSION = C_AddOns.GetAddOnMetadata(ADDON_NAME, "Version") or "";
+
 SASSTEXT = {
 
-	TITLE="Schnoggo's Simple Assist Ver. " .. C_AddOns.GetAddOnMetadata("SimpleAssist", "Version"),
-	WELCOME="SimpleAssist " .. C_AddOns.GetAddOnMetadata("SimpleAssist", "Version") .. " Loaded. Type /sass to change settings.",
-	FIRST_RUN="First time running SimpleAssist on this character. Customize with Interface:Addons:SimpleAssist.",
+	TITLE="Schnoggo's Simple Assist Ver. " .. ADDON_VERSION,
+	WELCOME="QuickAssist " .. ADDON_VERSION .. " Loaded. Type /sass to change settings.",
+	FIRST_RUN="First time running QuickAssist on this character. Customize with Interface:Addons:QuickAssist.",
 	TITLESPACING=-12, -- vertical distance between each TITLE below:
 	LINESPACING=-8,
 	COLWIDTH = 286,
