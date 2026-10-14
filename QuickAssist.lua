@@ -147,8 +147,65 @@ function ns.DoAssist()
 end
 
 
+--- Open the game's Key Bindings panel. Which API exists depends on the client.
+-- @return true if a panel was opened
+local function OpenKeyBindings()
+	if (KeyBindingFrame_LoadUI) then
+		KeyBindingFrame_LoadUI(); -- creates KeyBindingFrame on first use
+		if (KeyBindingFrame) then
+			ShowUIPanel(KeyBindingFrame);
+			return true;
+		end
+	end
+	-- the Settings window wants the category's numeric ID, not its name
+	if (Settings and Settings.OpenToCategory and Settings.KEYBINDINGS_CATEGORY_ID) then
+		return (pcall(Settings.OpenToCategory, Settings.KEYBINDINGS_CATEGORY_ID));
+	end
+	return false;
+end
+
+
+--- Whether some other slash command already uses the given word (e.g. "/qa")
+local function SlashInUse(word)
+	for command in pairs(SlashCmdList) do
+		if ("QUICKASSIST" ~= command) then
+			local i = 1;
+			local alias = _G["SLASH_" .. command .. i];
+			while (alias) do
+				if (alias:lower() == word) then
+					return true;
+				end
+				i = i + 1;
+				alias = _G["SLASH_" .. command .. i];
+			end
+		end
+	end
+	return false;
+end
+
+
+-- /quickassist is always ours. The short /qa is added at login, if nobody else has it.
+SLASH_QUICKASSIST1 = "/quickassist";
+SlashCmdList["QUICKASSIST"] = function()
+	if (not OpenKeyBindings()) then
+		print(L.KEYS_CANNOT_OPEN);
+	end
+end;
+
+
 events:SetScript("OnEvent", function(frame, event)
-	if (event == "UPDATE_BINDINGS") then
+	if (event == "PLAYER_LOGIN") then
+		-- every addon has loaded by now, so we can see whether /qa is taken
+		if (not SlashInUse("/qa")) then
+			SLASH_QUICKASSIST2 = "/qa";
+		end
+
+		-- remind new players until both keys are set
+		if (not GetBindingKey("QUICKASSIST_LEARN") or not GetBindingKey("QUICKASSIST_ASSIST")) then
+			print(L.KEYS_NOT_SET);
+		end
+
+	elseif (event == "UPDATE_BINDINGS") then
 		UpdateBindings();
 
 	elseif (event == "PLAYER_REGEN_ENABLED") then -- left combat
@@ -163,5 +220,6 @@ events:SetScript("OnEvent", function(frame, event)
 		end
 	end
 end);
+events:RegisterEvent("PLAYER_LOGIN");
 events:RegisterEvent("UPDATE_BINDINGS");
 events:RegisterEvent("PLAYER_REGEN_ENABLED");

@@ -10,13 +10,13 @@ It replaces the usual `/assist <name>` macro: no macro to edit when the player y
 
 ## Install
 
-1. Download `QuickAssist-0.1.0.zip` from the [latest release](https://github.com/Terrorskull/QuickAssist/releases/latest).
+1. Download `QuickAssist-1.1.0.zip` from the [latest release](https://github.com/Terrorskull/QuickAssist/releases/latest).
 2. Unzip it into your WoW Forever `Interface/AddOns` folder, so you end up with `AddOns/QuickAssist/QuickAssist.toc`.
 3. If the game is already running, type `/reload`. A restart isn't needed.
 
 ## Usage
 
-Open the Key Bindings panel (Esc > Options > Key Bindings) and find the **QuickAssist** section.
+Type `/quickassist` (or `/qa`, if no other addon uses it) to open the Key Bindings panel, then find the **QuickAssist** section. You can also open it from Esc > Options > Key Bindings. Until both keys are set, QuickAssist reminds you of this each time you log in.
 
 - **Set Player to Assist**: target a friendly player and press this key. You'll see "Assist set: Name Secondary".
 - **Assist Learned Player**: press this key to target that player's target.
@@ -28,7 +28,7 @@ Good to know:
 - If you change the player during combat, the change is queued and applied when combat ends.
 - Players have a primary and a secondary name on WoW Forever. QuickAssist uses both, so two players who share a primary name can be told apart.
 
-There are no settings and no slash commands.
+There are no settings. The only slash command is `/quickassist` (or `/qa`), which opens the Key Bindings panel.
 
 ## Compatibility
 

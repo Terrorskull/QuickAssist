@@ -2,6 +2,10 @@
 
 QuickAssist is based on SimpleAssist 4.01 by Schnoggo. Newest first.
 
+## 1.1.0 (2026-10-14)
+- New players are now reminded at login to set their keys. The reminder goes away once both keys are set.
+- Added the `/quickassist` command to open the Key Bindings panel. `/qa` works too, unless another addon already uses it.
+
 ## 1.0.0 (2026-10-14)
 - First stable release. Nothing has changed since 0.1.0.
 
