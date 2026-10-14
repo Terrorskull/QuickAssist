@@ -1,0 +1,12 @@
+package-as: QuickAssist
+
+manual-changelog:
+  filename: CHANGELOG.md
+  markup-type: markdown
+
+ignore:
+  - docs
+  - README.md
+  - Readme.txt
+  - .gitattributes
+  - .github

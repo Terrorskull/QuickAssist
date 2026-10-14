@@ -2,6 +2,10 @@
 
 All changes from SimpleAssist, newest first. QuickAssist is based on SimpleAssist 4.01 by Schnoggo.
 
+## 1.0.0 (2026-10-14)
+- First stable release. No functional changes from 0.1.0.
+- Releases are now built and uploaded to CurseForge automatically from version tags using the BigWigs packager (`.pkgmeta` and `.github/workflows/release.yml`).
+
 ## 0.1.0 (2026-10-13)
 - Renamed the addon to QuickAssist and started a new version line (the last SimpleAssist-based version was `4.01-wf1`). `QuickAssist.toc` and `QuickAssist.lua` replace the SimpleAssist file names.
 - Removed the Request Assistance feature and all of its settings (chat channels, custom message, raid icon), which also removed the settings panel (`settings.lua`, `settings_panel_lib.lua`) and the saved variables.
