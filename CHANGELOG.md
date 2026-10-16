@@ -2,6 +2,9 @@
 
 QuickAssist is based on SimpleAssist 4.01 by Schnoggo. Newest first.
 
+## 1.2.0 (2026-10-15)
+- QuickAssist now works on WoW retail as well as WoW Forever.
+
 ## 1.1.0 (2026-10-14)
 - New players are now reminded at login to set their keys. The reminder goes away once both keys are set.
 - Added the `/quickassist` command to open the Key Bindings panel. `/qa` works too, unless another addon already uses it.
