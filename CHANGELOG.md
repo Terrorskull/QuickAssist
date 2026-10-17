@@ -2,6 +2,11 @@
 
 QuickAssist is based on SimpleAssist 4.01 by Schnoggo. Newest first.
 
+## 1.3.0 (2026-10-17)
+- Messages now have colors: green when you set a player, gray when you clear, yellow while a change waits for combat to end, and red if you try to assist yourself.
+- Short sounds now play when you set a player, clear the player, or try to set yourself. Type `/quickassist sound` to turn them off or on again.
+- Type `/quickassist status` to see who you are assisting.
+
 ## 1.2.1 (2026-10-16)
 - Fixed a reminder that your keys aren't set showing up at login even when they were set.
 

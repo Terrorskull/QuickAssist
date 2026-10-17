@@ -43,9 +43,26 @@ QuickAssistAlertFrame:SetFadeDuration(ALERT_FADE_SECONDS);
 
 
 --- Our head's up display for this addon
-local function PopMsg(msg)
-	QuickAssistAlertFrame:AddMessage(msg, 1, 1, 1, 1); -- uses the frame's visible and fade times
+local function PopMsg(msg, r, g, b)
+	QuickAssistAlertFrame:AddMessage(msg, r or 1, g or 1, b or 1, 1); -- uses the frame's visible and fade times
 end
+
+-- Message colors (red, green, blue)
+local GREEN = {0.4, 1, 0.4};
+local GRAY = {0.75, 0.75, 0.75};
+local YELLOW = {1, 0.82, 0};
+local RED = {1, 0.3, 0.3};
+
+-- Sound IDs (plain numbers work on every client, even without the SOUNDKIT table)
+local SOUND_SET = 850; -- main menu open
+local SOUND_CLEARED = 838; -- ability icon drop
+local SOUND_REFUSED = 847; -- quest failed
+
+-- The player currently being assisted, as shown in messages (nil: none learned)
+local learnedDisplay;
+
+-- Saved between sessions. Set up at login, when saved variables are available.
+local db = {sound = true};
 
 
 --- The primary name of a unit and, for players on WoW Forever, the secondary name.
@@ -82,10 +99,18 @@ end
 local function SetAssist(name, display)
 	if (name) then
 		button:SetAttribute("macrotext", "/assist " .. name);
-		PopMsg(L.ASSIST_SET .. ": " .. display);
+		learnedDisplay = display;
+		PopMsg(L.ASSIST_SET .. ": " .. display, unpack(GREEN));
+		if (db.sound) then
+			PlaySound(SOUND_SET, "SFX");
+		end
 	else
 		button:SetAttribute("macrotext", DEFAULT_MACRO);
-		PopMsg(L.CLEARED);
+		learnedDisplay = nil;
+		PopMsg(L.CLEARED, unpack(GRAY));
+		if (db.sound) then
+			PlaySound(SOUND_CLEARED, "SFX");
+		end
 	end
 end
 
@@ -116,17 +141,20 @@ function ns.Learn(unit)
 	local display = DisplayName(unit);
 
 	if (name ~= nil and UnitIsUnit(unit, "player")) then
-		PopMsg(L.CANNOT_ASSIST_SELF); -- assisting yourself would do nothing useful
+		PopMsg(L.CANNOT_ASSIST_SELF, unpack(RED)); -- assisting yourself would do nothing useful
+		if (db.sound) then
+			PlaySound(SOUND_REFUSED, "SFX");
+		end
 		return; -- the player currently being assisted stays as it is
 	end
 
 	if (InCombatLockdown()) then
 		if (name == nil) then
 			pending = PENDING_CLEAR;
-			PopMsg(L.CLEAR_PENDING);
+			PopMsg(L.CLEAR_PENDING, unpack(YELLOW));
 		else
 			pending = {name = name, display = display};
-			PopMsg(L.ASSIST_PENDING .. display);
+			PopMsg(L.ASSIST_PENDING .. display, unpack(YELLOW));
 		end
 		return;
 	end
@@ -186,15 +214,32 @@ end
 
 -- /quickassist is always ours. The short /qa is added at login, if nobody else has it.
 SLASH_QUICKASSIST1 = "/quickassist";
-SlashCmdList["QUICKASSIST"] = function()
-	if (not OpenKeyBindings()) then
-		print(L.KEYS_CANNOT_OPEN);
+SlashCmdList["QUICKASSIST"] = function(msg)
+	local command = strlower(strtrim(msg or ""));
+	if ("" == command) then
+		if (not OpenKeyBindings()) then
+			print(L.KEYS_CANNOT_OPEN);
+		end
+	elseif ("sound" == command) then
+		db.sound = not db.sound;
+		print(db.sound and L.SOUND_ON or L.SOUND_OFF);
+	elseif ("status" == command) then
+		print(learnedDisplay and (L.STATUS_ASSISTING .. learnedDisplay) or L.STATUS_NONE);
+		print(db.sound and L.SOUND_ON or L.SOUND_OFF);
+	else
+		print(L.USAGE);
 	end
 end;
 
 
 events:SetScript("OnEvent", function(frame, event)
 	if (event == "PLAYER_LOGIN") then
+		QuickAssistDB = QuickAssistDB or {};
+		if (QuickAssistDB.sound == nil) then
+			QuickAssistDB.sound = true; -- sound is on until the player turns it off
+		end
+		db = QuickAssistDB;
+
 		-- every addon has loaded by now, so we can see whether /qa is taken
 		if (not SlashInUse("/qa")) then
 			SLASH_QUICKASSIST2 = "/qa";

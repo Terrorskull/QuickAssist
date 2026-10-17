@@ -8,7 +8,12 @@ ns.L = {
 	CANNOT_ASSIST_SELF="You can't set yourself as the player to assist",
 	-- |cffRRGGBB starts a color and |r ends it. The addon name is gold, the command light blue.
 	KEYS_NOT_SET="|cffffd100QuickAssist:|r your keys aren't set yet. Type |cff66ccff/quickassist|r to open Key Bindings, then look for the QuickAssist section.",
-	KEYS_CANNOT_OPEN="|cffffd100QuickAssist:|r couldn't open Key Bindings. Open it from the game menu and look for the QuickAssist section."
+	KEYS_CANNOT_OPEN="|cffffd100QuickAssist:|r couldn't open Key Bindings. Open it from the game menu and look for the QuickAssist section.",
+	STATUS_ASSISTING="|cffffd100QuickAssist:|r assisting ",
+	STATUS_NONE="|cffffd100QuickAssist:|r no player learned yet, the assist key assists your current target.",
+	SOUND_ON="|cffffd100QuickAssist:|r sound is on. Type |cff66ccff/quickassist sound|r to turn it off.",
+	SOUND_OFF="|cffffd100QuickAssist:|r sound is off. Type |cff66ccff/quickassist sound|r to turn it on.",
+	USAGE="|cffffd100QuickAssist:|r type |cff66ccff/quickassist|r to open Key Bindings, |cff66ccff/quickassist status|r to see who you assist, or |cff66ccff/quickassist sound|r to turn the sound on or off."
 }
 
 -- Key Bindings panel text (must be globals):

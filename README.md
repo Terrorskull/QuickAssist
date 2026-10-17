@@ -10,7 +10,7 @@ It replaces the usual `/assist <name>` macro: no macro to edit when the player y
 
 ## Install
 
-1. Download `QuickAssist-1.2.1.zip` from the [latest release](https://github.com/Terrorskull/QuickAssist/releases/latest).
+1. Download `QuickAssist-1.3.0.zip` from the [latest release](https://github.com/Terrorskull/QuickAssist/releases/latest).
 2. Unzip it into your `Interface/AddOns` folder (inside `_retail_` for WoW retail, or your WoW Forever install), so you end up with `AddOns/QuickAssist/QuickAssist.toc`.
 3. If the game is already running, type `/reload`. A restart isn't needed.
 
@@ -28,7 +28,10 @@ Good to know:
 - If you change the player during combat, the change is queued and applied when combat ends.
 - Players have a primary and a secondary name on WoW Forever. QuickAssist uses both, so two players who share a primary name can be told apart. On WoW retail it uses the player's name.
 
-There are no settings. The only slash command is `/quickassist` (or `/qa`), which opens the Key Bindings panel.
+Slash commands (`/qa` works in place of `/quickassist`):
+- `/quickassist`: open the Key Bindings panel.
+- `/quickassist status`: show who you are assisting.
+- `/quickassist sound`: turn the sounds played when you set a player, clear the player, or try to set yourself on or off. It is on by default, and this is the only setting.
 
 ## Compatibility
 
