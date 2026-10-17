@@ -148,6 +148,15 @@ function ns.Learn(unit)
 		return; -- the player currently being assisted stays as it is
 	end
 
+	-- Checked before the combat queue, so a hostile or NPC target is never queued
+	if (name ~= nil and not (UnitIsPlayer(unit) and UnitIsFriend("player", unit))) then
+		PopMsg(L.CANNOT_ASSIST_NOT_PLAYER, unpack(RED));
+		if (db.sound) then
+			PlaySound(SOUND_REFUSED, "SFX");
+		end
+		return;
+	end
+
 	if (InCombatLockdown()) then
 		if (name == nil) then
 			pending = PENDING_CLEAR;
@@ -161,8 +170,7 @@ function ns.Learn(unit)
 
 	if (name == nil) then
 		SetAssist(nil);
-	-- unit could technically be "target" here... (changed from player to target for Battle of Darrowshire and similar events)
-	elseif (UnitIsPlayer(unit) and UnitIsFriend("target", unit)) then
+	else
 		SetAssist(name, display);
 	end
 end

@@ -2,6 +2,9 @@
 
 QuickAssist is based on SimpleAssist 4.01 by Schnoggo. Newest first.
 
+## 1.3.1 (2026-10-17)
+- Fixed being able to set an enemy or an NPC as the player to assist while in combat. Only friendly players can be set now, and you get a red message if you try something else.
+
 ## 1.3.0 (2026-10-17)
 - Messages now have colors: green when you set a player, gray when you clear, yellow while a change waits for combat to end, and red if you try to assist yourself.
 - Short sounds now play when you set a player, clear the player, or try to set yourself. Type `/quickassist sound` to turn them off or on again.
