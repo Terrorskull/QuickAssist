@@ -1,7 +1,7 @@
 ## Interface: 16001, 120000
 ## Title: QuickAssist
 ## Notes: Remember a player and assist their target with one key. Based on SimpleAssist.
-## Version: 1.2.0
+## Version: 1.2.1
 ## X-Curse-Project-ID: 1743813
 ## Author: Schnoggo (original SimpleAssist), Terrorskull
 localization.lua

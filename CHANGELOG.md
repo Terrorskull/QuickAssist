@@ -2,6 +2,9 @@
 
 QuickAssist is based on SimpleAssist 4.01 by Schnoggo. Newest first.
 
+## 1.2.1 (2026-10-16)
+- Fixed a reminder that your keys aren't set showing up at login even when they were set.
+
 ## 1.2.0 (2026-10-15)
 - QuickAssist now works on WoW retail as well as WoW Forever.
 

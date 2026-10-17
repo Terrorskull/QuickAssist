@@ -200,7 +200,10 @@ events:SetScript("OnEvent", function(frame, event)
 			SLASH_QUICKASSIST2 = "/qa";
 		end
 
-		-- remind new players until both keys are set
+	elseif (event == "PLAYER_ENTERING_WORLD") then
+		-- Remind new players until both keys are set. This waits until we are in the world
+		-- because on a fresh login the saved bindings are not loaded yet at PLAYER_LOGIN.
+		events:UnregisterEvent("PLAYER_ENTERING_WORLD"); -- once per session, not on every zone change
 		if (not GetBindingKey("QUICKASSIST_LEARN") or not GetBindingKey("QUICKASSIST_ASSIST")) then
 			print(L.KEYS_NOT_SET);
 		end
@@ -221,5 +224,6 @@ events:SetScript("OnEvent", function(frame, event)
 	end
 end);
 events:RegisterEvent("PLAYER_LOGIN");
+events:RegisterEvent("PLAYER_ENTERING_WORLD");
 events:RegisterEvent("UPDATE_BINDINGS");
 events:RegisterEvent("PLAYER_REGEN_ENABLED");
