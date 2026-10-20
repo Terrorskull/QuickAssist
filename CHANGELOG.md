@@ -2,7 +2,7 @@
 
 QuickAssist is based on SimpleAssist 4.01 by Schnoggo. Newest first.
 
-## Unreleased
+## 1.4.0 (2026-10-19)
 - QuickAssist now remembers who you were assisting when you reload the UI or log back in. Each character remembers their own player.
 - When you log in or reload with a player still set to assist, QuickAssist now says so in chat.
 - The player's name is now shown in their class color in the `/quickassist status` message and the login message. If QuickAssist doesn't know the class yet (for example you typed the name and they weren't nearby), the name is green until that player is in your group or your target.

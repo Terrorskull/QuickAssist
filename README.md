@@ -10,7 +10,7 @@ It replaces the usual `/assist <name>` macro: no macro to edit when the player y
 
 ## Install
 
-1. Download `QuickAssist-1.3.1.zip` from the [latest release](https://github.com/Terrorskull/QuickAssist/releases/latest).
+1. Download `QuickAssist-1.4.0.zip` from the [latest release](https://github.com/Terrorskull/QuickAssist/releases/latest).
 2. Unzip it into your `Interface/AddOns` folder (inside `_retail_` for WoW retail, or your WoW Forever install), so you end up with `AddOns/QuickAssist/QuickAssist.toc`.
 3. If the game is already running, type `/reload`. A restart isn't needed.
 
