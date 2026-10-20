@@ -24,12 +24,14 @@ Type `/quickassist` (or `/qa`, if no other addon uses it) to open the Key Bindin
 Good to know:
 - Until you learn someone, the assist key just assists your current target, so you can bind it to your normal assist key.
 - Press **Set Player to Assist** with nothing targeted to clear the learned player.
+- QuickAssist remembers the player you set across `/reload` and logging out. Each character remembers its own player.
 - You can't set yourself as the player to assist.
 - If you change the player during combat, the change is queued and applied when combat ends.
 - Players have a primary and a secondary name on WoW Forever. QuickAssist uses both, so two players who share a primary name can be told apart. On WoW retail it uses the player's name.
 
 Slash commands (`/qa` works in place of `/quickassist`):
 - `/quickassist`: open the Key Bindings panel.
+- `/quickassist set Name`: set a player to assist by typing their name, without targeting them first. Use it when they are out of range.
 - `/quickassist status`: show who you are assisting.
 - `/quickassist sound`: turn the sounds played when you set a player, clear the player, or try to set yourself on or off. It is on by default, and this is the only setting.
 

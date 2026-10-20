@@ -2,6 +2,12 @@
 
 QuickAssist is based on SimpleAssist 4.01 by Schnoggo. Newest first.
 
+## Unreleased
+- QuickAssist now remembers who you were assisting when you reload the UI or log back in. Each character remembers their own player.
+- When you log in or reload with a player still set to assist, QuickAssist now says so in chat.
+- The player's name is now shown in their class color in the `/quickassist status` message and the login message. If QuickAssist doesn't know the class yet (for example you typed the name and they weren't nearby), the name is green until that player is in your group or your target.
+- Type `/quickassist set Name` to choose a player to assist by name, without having to target them first.
+
 ## 1.3.1 (2026-10-17)
 - Fixed being able to set an enemy or an NPC as the player to assist while in combat. Only friendly players can be set now, and you get a red message if you try something else.
 
